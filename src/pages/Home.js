@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function Home() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState({});
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -58,8 +58,15 @@ export default function Home() {
           onKeyDown={handleSubmit}
         />
       </form>
-
+        <>
       
+        {movies.map((movie, idx)=> (
+            <div key={idx} className='grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 my-10 lg:my-20'>
+            <h6>{movie.title}</h6>
+            </div>
+        ))}
+      </>
+
     </div>
   );
 }
